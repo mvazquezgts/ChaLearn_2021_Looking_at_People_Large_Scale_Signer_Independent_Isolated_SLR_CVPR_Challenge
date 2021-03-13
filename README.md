@@ -53,7 +53,7 @@ In our implementation we have used only the videos from the "color" folder.
 
 ### Generate Keypoints
 
-Our implemented is based on the keypoints, these keypoints had been extracted using OpenPose : https://github.com/CMU-Perceptual-Computing-Lab/openpose
+Our implementation is based on  keypoints, these keypoints had been extracted using OpenPose : https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
 ```
   - keypoints/
