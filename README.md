@@ -75,6 +75,8 @@ Our implementation is based on  keypoints, these keypoints had been extracted us
 
 
 #### Download keypoints folders: 
+Link: https://drive.google.com/file/d/1otwvPYtkgB0DaTBLRQL9Yrrr75VzwA9U/view?usp=sharing
+
 Extract keeping the directory structure.
 
 #### Generate keypoints.
@@ -113,7 +115,8 @@ python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 In this section we will prepare the labels files and features files '.npy' that we will use to feed our network.
 
 #### Download
-Link: 
+Link: https://drive.google.com/file/d/1spuwftpg5WloUgv7L8ia4Xcxt8Sy5ZjZ/view?usp=sharing
+
 Extract keep the directory mentioned.
 
 #### Generate features data.
