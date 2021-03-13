@@ -33,19 +33,15 @@ The dataset used is called AUTSL. It could be downloaded from: http://chalearnla
 
 Note, decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
 
-Once it has been downloaded and decompressed, it have been distributed int 3 folders: color, depth and all. According to the suffix _color or _depth contained into the filenames.
-
-In our implementation we have used only the videos from the "color" folder.
+Once downloaded and unzipped, we will only keep the videos with the suffix _color, which we will place inside the folder called 'color'. In our implementation we have used only the videos from this folder.
 
 ```
   - dataset\
     - train\
-      - all\
+      - color\
         - signer0_sample1_color.mp4
         ...
-        - signer42_sample672_depth.mp4
-      - color\
-      - depth
+        - signer42_sample672_color.mp4
     - val\
     - test\
 ```
