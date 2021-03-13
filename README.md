@@ -2,7 +2,7 @@
 
 In this repository you can find the code and instructions for its use.
 
-![Alt (fact_sheets/figures/general_structure.png?raw=true "General Structure")
+![Alt text](fact_sheets/figures/general_structure.png?raw=true "General Structure")
 
 
 This implementation is based on the implementation described in "Disentangling and Unifying Graph Convolutions for Skeleton-Based Action Recognition", CVPR 2020 Oral.
