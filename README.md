@@ -34,7 +34,7 @@ To train and evaluate the models, only the MS-G3D and data folders are needed. I
 
 The dataset used is called AUTSL. It could be downloaded from: http://chalearnlap.cvc.uab.es/dataset/40/description/ 
 
-Note, decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
+Note: decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
 
 Once downloaded and unzipped, we will only keep the videos with the suffix _color, which we will place inside the folder called 'color'. In our implementation we have used only the videos from this folder.
 
