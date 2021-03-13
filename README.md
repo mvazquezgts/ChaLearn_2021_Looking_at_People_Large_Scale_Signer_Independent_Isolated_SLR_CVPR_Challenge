@@ -30,9 +30,11 @@ To train and evaluate the models, only the MS-G3D and data folders are needed. I
 ### Download Datasets
 
 The dataset used is called AUTSL. It could be downloaded from: http://chalearnlap.cvc.uab.es/dataset/40/description/ 
+
 Note, decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
 
 Once it has been downloaded and decompressed, it have been distributed int 3 folders: color, depth and all. According to the suffix _color or _depth contained into the filenames.
+
 In our implementation we have used only the videos from the "color" folder.
 
 ```
@@ -86,6 +88,7 @@ Then, depending on the path where you have installed Openpose, edit the file key
 
 Once Openpose is installed. The video set has been divided into small parts that allow it to run on different GPUs. As requirements at least 800 MB of GPU memory will be necessary to use the configuration used.
 
+```
 cd keypoints
 python autsl_generateOpenPoseKps.py --set train --split 0 --gpu 0
 ..
@@ -94,6 +97,7 @@ python autsl_generateOpenPoseKps.py --set val --split 0 --gpu 0
 python autsl_generateOpenPoseKps.py --set val --split 1 --gpu 0
 python autsl_generateOpenPoseKps.py --set test --split 0 --gpu 0
 python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
+```
 
 ## Generating Data
 
