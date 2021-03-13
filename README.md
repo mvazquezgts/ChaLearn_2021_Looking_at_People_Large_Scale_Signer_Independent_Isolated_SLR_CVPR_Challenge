@@ -99,7 +99,7 @@ python autsl_generateOpenPoseKps.py --set test --split 0 --gpu 0
 python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 ```
 
-## Generating Data
+### Generating Data
 
 ```
   - data/
@@ -113,11 +113,11 @@ python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 
 In this section we will prepare the labels files and features files '.npy' that we will use to feed our network.
 
-### Download
+#### Download
 Link: 
 Extract keep the directory mentioned.
 
-### Generate features data.
+#### Generate features data.
 Inside the downloaded and unzipped file, you will find all the folders, files and codes used to generate from the keypoints the data prepared to feed the network. But if you want to repeat or replicate the routine that has been followed, you must run the following commands:
 
 ```
