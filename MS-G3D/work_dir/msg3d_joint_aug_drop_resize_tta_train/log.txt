@@ -1,0 +1,606 @@
+[ Thu Mar  4 11:21:04 2021 ] USE TTA:
+[ Thu Mar  4 11:21:04 2021 ] tta 0: test_tta_0 > [False, 1]
+[ Thu Mar  4 11:21:04 2021 ] tta 1: test_tta_1 > [True, 1]
+[ Thu Mar  4 11:21:04 2021 ] tta 2: test_tta_2 > [False, 1.1]
+[ Thu Mar  4 11:21:04 2021 ] tta 3: test_tta_3 > [True, 1.1]
+[ Thu Mar  4 11:21:04 2021 ] tta 4: test_tta_4 > [False, 0.9]
+[ Thu Mar  4 11:21:04 2021 ] tta 5: test_tta_5 > [True, 0.9]
+[ Thu Mar  4 11:21:09 2021 ] Model total number of params: 5346292
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_0
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_1
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_2
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_3
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_4
+[ Thu Mar  4 11:21:09 2021 ] Load dataset: test_tta_5
+[ Thu Mar  4 11:21:09 2021 ] *************************************
+[ Thu Mar  4 11:21:09 2021 ] *** Using Half Precision Training ***
+[ Thu Mar  4 11:21:09 2021 ] *************************************
+[ Thu Mar  4 11:21:12 2021 ] 2 GPUs available, using DataParallel
+[ Thu Mar  4 11:21:12 2021 ] Parameters:
+{'amp_opt_level': 1,
+ 'assume_yes': False,
+ 'base_lr': 0.1,
+ 'batch_size': 128,
+ 'checkpoint': None,
+ 'config': './config/autsl-skeleton-evaluation/train_joint_tta.yaml',
+ 'debug': False,
+ 'device': [4, 5],
+ 'eval_interval': 1,
+ 'eval_start': 1,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 64,
+ 'half': True,
+ 'ignore_weights': ['fc.weight', 'fc.bias'],
+ 'log_interval': 100,
+ 'model': 'model.msg3d.Model',
+ 'model_args': {'graph': 'graph.autsl_joints.AdjMatrixGraph',
+                'num_class': 226,
+                'num_g3d_scales': 8,
+                'num_gcn_scales': 8,
+                'num_person': 1,
+                'num_point': 55},
+ 'model_saved_name': '',
+ 'nesterov': True,
+ 'num_epoch': 75,
+ 'num_worker': 40,
+ 'optimizer': 'SGD',
+ 'optimizer_states': None,
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 1,
+ 'save_score': False,
+ 'seed': 129,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [45, 55],
+ 'test_batch_size': 64,
+ 'test_feeder_args': {'data_path': '../data_autsl/autsl/val_data_joint.npy',
+                      'label_path': '../data_autsl/autsl/val_label.pkl'},
+ 'train_feeder_args': {'data_path': '../data_autsl/autsl/train_data_joint.npy',
+                       'debug': False,
+                       'label_path': '../data_autsl/autsl/train_label.pkl'},
+ 'tta': [[False, 1],
+         [True, 1],
+         [False, 1.1],
+         [True, 1.1],
+         [False, 0.9],
+         [True, 0.9]],
+ 'weight_decay': 0.0003,
+ 'weights': None,
+ 'work_dir': './work_dir/autsl_evaluation/msg3d_joint_aug_drop_resize_tta_retrain_lex40_train3'}
+
+[ Thu Mar  4 11:21:12 2021 ] Model total number of params: 5346292
+[ Thu Mar  4 11:21:12 2021 ] Training epoch: 1, LR: 0.1000
+[ Thu Mar  4 11:35:50 2021 ] 	Mean training loss: 2.1796 (BS 128: 4.3592).
+[ Thu Mar  4 11:35:50 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 11:35:50 2021 ] Eval epoch: 1
+[ Thu Mar  4 11:40:03 2021 ] 	Mean test_tta_5 loss of 70 batches: 3.1357436180114746.
+[ Thu Mar  4 11:40:03 2021 ] 	Top 1: 20.39%
+[ Thu Mar  4 11:40:03 2021 ] 	Top 5: 52.58%
+[ Thu Mar  4 11:40:04 2021 ] Training epoch: 2, LR: 0.1000
+[ Thu Mar  4 11:54:47 2021 ] 	Mean training loss: 1.2377 (BS 128: 2.4754).
+[ Thu Mar  4 11:54:47 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 11:54:48 2021 ] Eval epoch: 2
+[ Thu Mar  4 11:59:04 2021 ] 	Mean test_tta_5 loss of 70 batches: 2.094954797199794.
+[ Thu Mar  4 11:59:04 2021 ] 	Top 1: 43.39%
+[ Thu Mar  4 11:59:04 2021 ] 	Top 5: 77.00%
+[ Thu Mar  4 11:59:05 2021 ] Training epoch: 3, LR: 0.1000
+[ Thu Mar  4 12:13:52 2021 ] 	Mean training loss: 0.7622 (BS 128: 1.5243).
+[ Thu Mar  4 12:13:52 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 12:13:52 2021 ] Eval epoch: 3
+[ Thu Mar  4 12:18:10 2021 ] 	Mean test_tta_5 loss of 70 batches: 1.3877646906035288.
+[ Thu Mar  4 12:18:10 2021 ] 	Top 1: 60.84%
+[ Thu Mar  4 12:18:10 2021 ] 	Top 5: 88.14%
+[ Thu Mar  4 12:18:11 2021 ] Training epoch: 4, LR: 0.1000
+[ Thu Mar  4 12:33:02 2021 ] 	Mean training loss: 0.5337 (BS 128: 1.0675).
+[ Thu Mar  4 12:33:02 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 12:33:03 2021 ] Eval epoch: 4
+[ Thu Mar  4 12:37:20 2021 ] 	Mean test_tta_5 loss of 70 batches: 1.1307711678956236.
+[ Thu Mar  4 12:37:20 2021 ] 	Top 1: 68.15%
+[ Thu Mar  4 12:37:20 2021 ] 	Top 5: 90.95%
+[ Thu Mar  4 12:37:21 2021 ] Training epoch: 5, LR: 0.1000
+[ Thu Mar  4 12:52:13 2021 ] 	Mean training loss: 0.3869 (BS 128: 0.7739).
+[ Thu Mar  4 12:52:13 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 12:52:13 2021 ] Eval epoch: 5
+[ Thu Mar  4 12:56:31 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.9185509347489902.
+[ Thu Mar  4 12:56:31 2021 ] 	Top 1: 74.67%
+[ Thu Mar  4 12:56:31 2021 ] 	Top 5: 95.31%
+[ Thu Mar  4 12:56:32 2021 ] Training epoch: 6, LR: 0.1000
+[ Thu Mar  4 13:11:21 2021 ] 	Mean training loss: 0.2930 (BS 128: 0.5859).
+[ Thu Mar  4 13:11:21 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 13:11:21 2021 ] Eval epoch: 6
+[ Thu Mar  4 13:15:37 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.772091706097126.
+[ Thu Mar  4 13:15:37 2021 ] 	Top 1: 79.04%
+[ Thu Mar  4 13:15:37 2021 ] 	Top 5: 95.11%
+[ Thu Mar  4 13:15:38 2021 ] Training epoch: 7, LR: 0.1000
+[ Thu Mar  4 13:30:29 2021 ] 	Mean training loss: 0.2309 (BS 128: 0.4619).
+[ Thu Mar  4 13:30:29 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 13:30:29 2021 ] Eval epoch: 7
+[ Thu Mar  4 13:34:48 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.6775878970112119.
+[ Thu Mar  4 13:34:48 2021 ] 	Top 1: 82.28%
+[ Thu Mar  4 13:34:48 2021 ] 	Top 5: 96.49%
+[ Thu Mar  4 13:34:49 2021 ] Training epoch: 8, LR: 0.1000
+[ Thu Mar  4 13:49:38 2021 ] 	Mean training loss: 0.1894 (BS 128: 0.3788).
+[ Thu Mar  4 13:49:38 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 13:49:38 2021 ] Eval epoch: 8
+[ Thu Mar  4 13:53:57 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.6084106430411339.
+[ Thu Mar  4 13:53:58 2021 ] 	Top 1: 84.13%
+[ Thu Mar  4 13:53:58 2021 ] 	Top 5: 97.03%
+[ Thu Mar  4 13:53:59 2021 ] Training epoch: 9, LR: 0.1000
+[ Thu Mar  4 14:08:52 2021 ] 	Mean training loss: 0.1576 (BS 128: 0.3151).
+[ Thu Mar  4 14:08:52 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 14:08:52 2021 ] Eval epoch: 9
+[ Thu Mar  4 14:13:10 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.5512947812410337.
+[ Thu Mar  4 14:13:10 2021 ] 	Top 1: 85.17%
+[ Thu Mar  4 14:13:10 2021 ] 	Top 5: 97.42%
+[ Thu Mar  4 14:13:11 2021 ] Training epoch: 10, LR: 0.1000
+[ Thu Mar  4 14:28:02 2021 ] 	Mean training loss: 0.1365 (BS 128: 0.2730).
+[ Thu Mar  4 14:28:02 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 14:28:03 2021 ] Eval epoch: 10
+[ Thu Mar  4 14:32:22 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.5082369866647891.
+[ Thu Mar  4 14:32:22 2021 ] 	Top 1: 86.24%
+[ Thu Mar  4 14:32:22 2021 ] 	Top 5: 97.53%
+[ Thu Mar  4 14:32:23 2021 ] Training epoch: 11, LR: 0.1000
+[ Thu Mar  4 14:47:17 2021 ] 	Mean training loss: 0.1196 (BS 128: 0.2392).
+[ Thu Mar  4 14:47:17 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 14:47:17 2021 ] Eval epoch: 11
+[ Thu Mar  4 14:51:33 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.5471577874251774.
+[ Thu Mar  4 14:51:33 2021 ] 	Top 1: 85.40%
+[ Thu Mar  4 14:51:33 2021 ] 	Top 5: 98.17%
+[ Thu Mar  4 14:51:34 2021 ] Training epoch: 12, LR: 0.1000
+[ Thu Mar  4 15:06:25 2021 ] 	Mean training loss: 0.1023 (BS 128: 0.2046).
+[ Thu Mar  4 15:06:25 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 15:06:26 2021 ] Eval epoch: 12
+[ Thu Mar  4 15:10:44 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.4750743607857398.
+[ Thu Mar  4 15:10:44 2021 ] 	Top 1: 86.51%
+[ Thu Mar  4 15:10:44 2021 ] 	Top 5: 98.01%
+[ Thu Mar  4 15:10:45 2021 ] Training epoch: 13, LR: 0.1000
+[ Thu Mar  4 15:25:38 2021 ] 	Mean training loss: 0.1002 (BS 128: 0.2004).
+[ Thu Mar  4 15:25:38 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 15:25:39 2021 ] Eval epoch: 13
+[ Thu Mar  4 15:29:57 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.5716228216886521.
+[ Thu Mar  4 15:29:57 2021 ] 	Top 1: 86.22%
+[ Thu Mar  4 15:29:58 2021 ] 	Top 5: 97.94%
+[ Thu Mar  4 15:29:58 2021 ] Training epoch: 14, LR: 0.1000
+[ Thu Mar  4 15:44:49 2021 ] 	Mean training loss: 0.0963 (BS 128: 0.1926).
+[ Thu Mar  4 15:44:49 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 15:44:49 2021 ] Eval epoch: 14
+[ Thu Mar  4 15:49:11 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.4657348357141018.
+[ Thu Mar  4 15:49:11 2021 ] 	Top 1: 87.69%
+[ Thu Mar  4 15:49:11 2021 ] 	Top 5: 97.76%
+[ Thu Mar  4 15:49:11 2021 ] Training epoch: 15, LR: 0.1000
+[ Thu Mar  4 16:04:03 2021 ] 	Mean training loss: 0.0843 (BS 128: 0.1686).
+[ Thu Mar  4 16:04:03 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 16:04:03 2021 ] Eval epoch: 15
+[ Thu Mar  4 16:08:22 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.4418251594362248.
+[ Thu Mar  4 16:08:22 2021 ] 	Top 1: 87.96%
+[ Thu Mar  4 16:08:22 2021 ] 	Top 5: 97.85%
+[ Thu Mar  4 16:08:23 2021 ] Training epoch: 16, LR: 0.1000
+[ Thu Mar  4 16:23:14 2021 ] 	Mean training loss: 0.0778 (BS 128: 0.1555).
+[ Thu Mar  4 16:23:14 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 16:23:15 2021 ] Eval epoch: 16
+[ Thu Mar  4 16:27:32 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.38952144256659915.
+[ Thu Mar  4 16:27:32 2021 ] 	Top 1: 89.36%
+[ Thu Mar  4 16:27:33 2021 ] 	Top 5: 98.19%
+[ Thu Mar  4 16:27:33 2021 ] Training epoch: 17, LR: 0.1000
+[ Thu Mar  4 16:42:25 2021 ] 	Mean training loss: 0.0719 (BS 128: 0.1438).
+[ Thu Mar  4 16:42:25 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 16:42:25 2021 ] Eval epoch: 17
+[ Thu Mar  4 16:46:45 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3865914906774248.
+[ Thu Mar  4 16:46:45 2021 ] 	Top 1: 89.61%
+[ Thu Mar  4 16:46:45 2021 ] 	Top 5: 98.14%
+[ Thu Mar  4 16:46:45 2021 ] Training epoch: 18, LR: 0.1000
+[ Thu Mar  4 17:01:42 2021 ] 	Mean training loss: 0.0705 (BS 128: 0.1409).
+[ Thu Mar  4 17:01:42 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 17:01:42 2021 ] Eval epoch: 18
+[ Thu Mar  4 17:06:02 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.4233543481943863.
+[ Thu Mar  4 17:06:02 2021 ] 	Top 1: 88.03%
+[ Thu Mar  4 17:06:02 2021 ] 	Top 5: 98.14%
+[ Thu Mar  4 17:06:03 2021 ] Training epoch: 19, LR: 0.1000
+[ Thu Mar  4 17:20:52 2021 ] 	Mean training loss: 0.0697 (BS 128: 0.1394).
+[ Thu Mar  4 17:20:52 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 17:20:53 2021 ] Eval epoch: 19
+[ Thu Mar  4 17:25:10 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.35438894748721006.
+[ Thu Mar  4 17:25:10 2021 ] 	Top 1: 89.81%
+[ Thu Mar  4 17:25:10 2021 ] 	Top 5: 98.48%
+[ Thu Mar  4 17:25:11 2021 ] Training epoch: 20, LR: 0.1000
+[ Thu Mar  4 17:39:59 2021 ] 	Mean training loss: 0.0633 (BS 128: 0.1267).
+[ Thu Mar  4 17:39:59 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 17:40:00 2021 ] Eval epoch: 20
+[ Thu Mar  4 17:44:17 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.4479651627729514.
+[ Thu Mar  4 17:44:18 2021 ] 	Top 1: 88.12%
+[ Thu Mar  4 17:44:18 2021 ] 	Top 5: 97.92%
+[ Thu Mar  4 17:44:18 2021 ] Training epoch: 21, LR: 0.1000
+[ Thu Mar  4 17:59:12 2021 ] 	Mean training loss: 0.0649 (BS 128: 0.1298).
+[ Thu Mar  4 17:59:13 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 17:59:13 2021 ] Eval epoch: 21
+[ Thu Mar  4 18:03:33 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.40284644747818155.
+[ Thu Mar  4 18:03:33 2021 ] 	Top 1: 89.72%
+[ Thu Mar  4 18:03:33 2021 ] 	Top 5: 98.26%
+[ Thu Mar  4 18:03:34 2021 ] Training epoch: 22, LR: 0.1000
+[ Thu Mar  4 18:18:22 2021 ] 	Mean training loss: 0.0611 (BS 128: 0.1222).
+[ Thu Mar  4 18:18:22 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 18:18:22 2021 ] Eval epoch: 22
+[ Thu Mar  4 18:22:40 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.35437859057315757.
+[ Thu Mar  4 18:22:40 2021 ] 	Top 1: 90.38%
+[ Thu Mar  4 18:22:40 2021 ] 	Top 5: 98.46%
+[ Thu Mar  4 18:22:41 2021 ] Training epoch: 23, LR: 0.1000
+[ Thu Mar  4 18:37:32 2021 ] 	Mean training loss: 0.0588 (BS 128: 0.1177).
+[ Thu Mar  4 18:37:32 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 18:37:32 2021 ] Eval epoch: 23
+[ Thu Mar  4 18:41:50 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3653123383776152.
+[ Thu Mar  4 18:41:50 2021 ] 	Top 1: 90.54%
+[ Thu Mar  4 18:41:50 2021 ] 	Top 5: 98.05%
+[ Thu Mar  4 18:41:51 2021 ] Training epoch: 24, LR: 0.1000
+[ Thu Mar  4 18:56:39 2021 ] 	Mean training loss: 0.0551 (BS 128: 0.1101).
+[ Thu Mar  4 18:56:39 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 18:56:39 2021 ] Eval epoch: 24
+[ Thu Mar  4 19:00:56 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3879884537043316.
+[ Thu Mar  4 19:00:56 2021 ] 	Top 1: 89.68%
+[ Thu Mar  4 19:00:56 2021 ] 	Top 5: 98.37%
+[ Thu Mar  4 19:00:57 2021 ] Training epoch: 25, LR: 0.1000
+[ Thu Mar  4 19:15:46 2021 ] 	Mean training loss: 0.0573 (BS 128: 0.1146).
+[ Thu Mar  4 19:15:46 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 19:15:46 2021 ] Eval epoch: 25
+[ Thu Mar  4 19:20:03 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3352359897324017.
+[ Thu Mar  4 19:20:03 2021 ] 	Top 1: 90.11%
+[ Thu Mar  4 19:20:03 2021 ] 	Top 5: 98.62%
+[ Thu Mar  4 19:20:04 2021 ] Training epoch: 26, LR: 0.1000
+[ Thu Mar  4 19:34:56 2021 ] 	Mean training loss: 0.0505 (BS 128: 0.1011).
+[ Thu Mar  4 19:34:56 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 19:34:57 2021 ] Eval epoch: 26
+[ Thu Mar  4 19:39:16 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3157651108290468.
+[ Thu Mar  4 19:39:16 2021 ] 	Top 1: 91.87%
+[ Thu Mar  4 19:39:16 2021 ] 	Top 5: 98.76%
+[ Thu Mar  4 19:39:18 2021 ] Training epoch: 27, LR: 0.1000
+[ Thu Mar  4 19:54:04 2021 ] 	Mean training loss: 0.0579 (BS 128: 0.1157).
+[ Thu Mar  4 19:54:04 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 19:54:04 2021 ] Eval epoch: 27
+[ Thu Mar  4 19:58:24 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.33544389653917667.
+[ Thu Mar  4 19:58:24 2021 ] 	Top 1: 90.70%
+[ Thu Mar  4 19:58:24 2021 ] 	Top 5: 98.73%
+[ Thu Mar  4 19:58:25 2021 ] Training epoch: 28, LR: 0.1000
+[ Thu Mar  4 20:13:14 2021 ] 	Mean training loss: 0.0530 (BS 128: 0.1060).
+[ Thu Mar  4 20:13:14 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 20:13:14 2021 ] Eval epoch: 28
+[ Thu Mar  4 20:17:31 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.40608837593879016.
+[ Thu Mar  4 20:17:31 2021 ] 	Top 1: 89.75%
+[ Thu Mar  4 20:17:31 2021 ] 	Top 5: 98.23%
+[ Thu Mar  4 20:17:32 2021 ] Training epoch: 29, LR: 0.1000
+[ Thu Mar  4 20:32:21 2021 ] 	Mean training loss: 0.0539 (BS 128: 0.1077).
+[ Thu Mar  4 20:32:21 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 20:32:22 2021 ] Eval epoch: 29
+[ Thu Mar  4 20:36:40 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3602220277168921.
+[ Thu Mar  4 20:36:40 2021 ] 	Top 1: 89.88%
+[ Thu Mar  4 20:36:40 2021 ] 	Top 5: 98.48%
+[ Thu Mar  4 20:36:41 2021 ] Training epoch: 30, LR: 0.1000
+[ Thu Mar  4 20:51:27 2021 ] 	Mean training loss: 0.0524 (BS 128: 0.1048).
+[ Thu Mar  4 20:51:27 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 20:51:28 2021 ] Eval epoch: 30
+[ Thu Mar  4 20:55:49 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3863916846790484.
+[ Thu Mar  4 20:55:49 2021 ] 	Top 1: 90.00%
+[ Thu Mar  4 20:55:49 2021 ] 	Top 5: 98.48%
+[ Thu Mar  4 20:55:50 2021 ] Training epoch: 31, LR: 0.1000
+[ Thu Mar  4 21:10:46 2021 ] 	Mean training loss: 0.0521 (BS 128: 0.1043).
+[ Thu Mar  4 21:10:46 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 21:10:46 2021 ] Eval epoch: 31
+[ Thu Mar  4 21:15:06 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.37815450936759587.
+[ Thu Mar  4 21:15:06 2021 ] 	Top 1: 89.41%
+[ Thu Mar  4 21:15:06 2021 ] 	Top 5: 98.39%
+[ Thu Mar  4 21:15:07 2021 ] Training epoch: 32, LR: 0.1000
+[ Thu Mar  4 21:29:57 2021 ] 	Mean training loss: 0.0509 (BS 128: 0.1017).
+[ Thu Mar  4 21:29:57 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 21:29:58 2021 ] Eval epoch: 32
+[ Thu Mar  4 21:34:16 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.32757841242211205.
+[ Thu Mar  4 21:34:16 2021 ] 	Top 1: 91.24%
+[ Thu Mar  4 21:34:17 2021 ] 	Top 5: 98.57%
+[ Thu Mar  4 21:34:17 2021 ] Training epoch: 33, LR: 0.1000
+[ Thu Mar  4 21:49:07 2021 ] 	Mean training loss: 0.0463 (BS 128: 0.0926).
+[ Thu Mar  4 21:49:07 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 21:49:08 2021 ] Eval epoch: 33
+[ Thu Mar  4 21:53:30 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.36156645736524035.
+[ Thu Mar  4 21:53:30 2021 ] 	Top 1: 89.95%
+[ Thu Mar  4 21:53:31 2021 ] 	Top 5: 98.23%
+[ Thu Mar  4 21:53:31 2021 ] Training epoch: 34, LR: 0.1000
+[ Thu Mar  4 22:08:21 2021 ] 	Mean training loss: 0.0463 (BS 128: 0.0926).
+[ Thu Mar  4 22:08:21 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 22:08:21 2021 ] Eval epoch: 34
+[ Thu Mar  4 22:12:41 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3683420235889831.
+[ Thu Mar  4 22:12:41 2021 ] 	Top 1: 90.15%
+[ Thu Mar  4 22:12:41 2021 ] 	Top 5: 98.76%
+[ Thu Mar  4 22:12:42 2021 ] Training epoch: 35, LR: 0.1000
+[ Thu Mar  4 22:27:31 2021 ] 	Mean training loss: 0.0488 (BS 128: 0.0975).
+[ Thu Mar  4 22:27:31 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 22:27:31 2021 ] Eval epoch: 35
+[ Thu Mar  4 22:31:52 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.37909026543742846.
+[ Thu Mar  4 22:31:52 2021 ] 	Top 1: 90.67%
+[ Thu Mar  4 22:31:52 2021 ] 	Top 5: 98.37%
+[ Thu Mar  4 22:31:52 2021 ] Training epoch: 36, LR: 0.1000
+[ Thu Mar  4 22:46:45 2021 ] 	Mean training loss: 0.0506 (BS 128: 0.1012).
+[ Thu Mar  4 22:46:45 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 22:46:46 2021 ] Eval epoch: 36
+[ Thu Mar  4 22:51:06 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.32435644866200164.
+[ Thu Mar  4 22:51:06 2021 ] 	Top 1: 90.97%
+[ Thu Mar  4 22:51:06 2021 ] 	Top 5: 98.89%
+[ Thu Mar  4 22:51:07 2021 ] Training epoch: 37, LR: 0.1000
+[ Thu Mar  4 23:06:03 2021 ] 	Mean training loss: 0.0454 (BS 128: 0.0909).
+[ Thu Mar  4 23:06:03 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 23:06:04 2021 ] Eval epoch: 37
+[ Thu Mar  4 23:10:30 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.40033399085680554.
+[ Thu Mar  4 23:10:30 2021 ] 	Top 1: 89.88%
+[ Thu Mar  4 23:10:30 2021 ] 	Top 5: 98.21%
+[ Thu Mar  4 23:10:31 2021 ] Training epoch: 38, LR: 0.1000
+[ Thu Mar  4 23:25:24 2021 ] 	Mean training loss: 0.0428 (BS 128: 0.0857).
+[ Thu Mar  4 23:25:24 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 23:25:24 2021 ] Eval epoch: 38
+[ Thu Mar  4 23:29:50 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.35232211111246475.
+[ Thu Mar  4 23:29:50 2021 ] 	Top 1: 90.70%
+[ Thu Mar  4 23:29:50 2021 ] 	Top 5: 98.60%
+[ Thu Mar  4 23:29:51 2021 ] Training epoch: 39, LR: 0.1000
+[ Thu Mar  4 23:44:43 2021 ] 	Mean training loss: 0.0432 (BS 128: 0.0863).
+[ Thu Mar  4 23:44:43 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Thu Mar  4 23:44:44 2021 ] Eval epoch: 39
+[ Thu Mar  4 23:49:04 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.32027603963922174.
+[ Thu Mar  4 23:49:04 2021 ] 	Top 1: 91.06%
+[ Thu Mar  4 23:49:04 2021 ] 	Top 5: 98.85%
+[ Thu Mar  4 23:49:05 2021 ] Training epoch: 40, LR: 0.1000
+[ Fri Mar  5 00:03:56 2021 ] 	Mean training loss: 0.0467 (BS 128: 0.0934).
+[ Fri Mar  5 00:03:56 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 00:03:56 2021 ] Eval epoch: 40
+[ Fri Mar  5 00:08:23 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.34739377408155375.
+[ Fri Mar  5 00:08:23 2021 ] 	Top 1: 90.38%
+[ Fri Mar  5 00:08:23 2021 ] 	Top 5: 98.28%
+[ Fri Mar  5 00:08:24 2021 ] Training epoch: 41, LR: 0.1000
+[ Fri Mar  5 00:23:20 2021 ] 	Mean training loss: 0.0442 (BS 128: 0.0883).
+[ Fri Mar  5 00:23:20 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 00:23:20 2021 ] Eval epoch: 41
+[ Fri Mar  5 00:27:48 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.31005150475539267.
+[ Fri Mar  5 00:27:48 2021 ] 	Top 1: 91.78%
+[ Fri Mar  5 00:27:48 2021 ] 	Top 5: 98.69%
+[ Fri Mar  5 00:27:49 2021 ] Training epoch: 42, LR: 0.1000
+[ Fri Mar  5 00:42:46 2021 ] 	Mean training loss: 0.0413 (BS 128: 0.0826).
+[ Fri Mar  5 00:42:46 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 00:42:46 2021 ] Eval epoch: 42
+[ Fri Mar  5 00:47:08 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.32253180759559785.
+[ Fri Mar  5 00:47:08 2021 ] 	Top 1: 91.96%
+[ Fri Mar  5 00:47:08 2021 ] 	Top 5: 98.66%
+[ Fri Mar  5 00:47:09 2021 ] Training epoch: 43, LR: 0.1000
+[ Fri Mar  5 01:02:07 2021 ] 	Mean training loss: 0.0416 (BS 128: 0.0832).
+[ Fri Mar  5 01:02:07 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 01:02:07 2021 ] Eval epoch: 43
+[ Fri Mar  5 01:06:35 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3680867001081684.
+[ Fri Mar  5 01:06:35 2021 ] 	Top 1: 90.79%
+[ Fri Mar  5 01:06:35 2021 ] 	Top 5: 98.28%
+[ Fri Mar  5 01:06:36 2021 ] Training epoch: 44, LR: 0.1000
+[ Fri Mar  5 01:21:33 2021 ] 	Mean training loss: 0.0388 (BS 128: 0.0777).
+[ Fri Mar  5 01:21:33 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 01:21:34 2021 ] Eval epoch: 44
+[ Fri Mar  5 01:25:59 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.2905578773668302.
+[ Fri Mar  5 01:25:59 2021 ] 	Top 1: 92.35%
+[ Fri Mar  5 01:25:59 2021 ] 	Top 5: 98.71%
+[ Fri Mar  5 01:26:00 2021 ] Training epoch: 45, LR: 0.1000
+[ Fri Mar  5 01:40:57 2021 ] 	Mean training loss: 0.0391 (BS 128: 0.0781).
+[ Fri Mar  5 01:40:57 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 01:40:57 2021 ] Eval epoch: 45
+[ Fri Mar  5 01:45:21 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.3031632350757718.
+[ Fri Mar  5 01:45:21 2021 ] 	Top 1: 92.17%
+[ Fri Mar  5 01:45:21 2021 ] 	Top 5: 98.60%
+[ Fri Mar  5 01:45:22 2021 ] Training epoch: 46, LR: 0.0100
+[ Fri Mar  5 02:00:15 2021 ] 	Mean training loss: 0.0140 (BS 128: 0.0279).
+[ Fri Mar  5 02:00:15 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 02:00:15 2021 ] Eval epoch: 46
+[ Fri Mar  5 02:04:40 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.2144656522182881.
+[ Fri Mar  5 02:04:40 2021 ] 	Top 1: 94.39%
+[ Fri Mar  5 02:04:40 2021 ] 	Top 5: 99.07%
+[ Fri Mar  5 02:04:41 2021 ] Training epoch: 47, LR: 0.0100
+[ Fri Mar  5 02:19:29 2021 ] 	Mean training loss: 0.0081 (BS 128: 0.0162).
+[ Fri Mar  5 02:19:29 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 02:19:29 2021 ] Eval epoch: 47
+[ Fri Mar  5 02:23:49 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20366439045839277.
+[ Fri Mar  5 02:23:49 2021 ] 	Top 1: 94.48%
+[ Fri Mar  5 02:23:49 2021 ] 	Top 5: 99.09%
+[ Fri Mar  5 02:23:50 2021 ] Training epoch: 48, LR: 0.0100
+[ Fri Mar  5 02:38:37 2021 ] 	Mean training loss: 0.0066 (BS 128: 0.0133).
+[ Fri Mar  5 02:38:37 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 02:38:38 2021 ] Eval epoch: 48
+[ Fri Mar  5 02:42:57 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20559052710720738.
+[ Fri Mar  5 02:42:57 2021 ] 	Top 1: 94.73%
+[ Fri Mar  5 02:42:57 2021 ] 	Top 5: 99.00%
+[ Fri Mar  5 02:42:58 2021 ] Training epoch: 49, LR: 0.0100
+[ Fri Mar  5 02:57:47 2021 ] 	Mean training loss: 0.0062 (BS 128: 0.0123).
+[ Fri Mar  5 02:57:47 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 02:57:47 2021 ] Eval epoch: 49
+[ Fri Mar  5 03:02:11 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20354090509936212.
+[ Fri Mar  5 03:02:11 2021 ] 	Top 1: 94.77%
+[ Fri Mar  5 03:02:11 2021 ] 	Top 5: 99.07%
+[ Fri Mar  5 03:02:13 2021 ] Training epoch: 50, LR: 0.0100
+[ Fri Mar  5 03:17:00 2021 ] 	Mean training loss: 0.0055 (BS 128: 0.0110).
+[ Fri Mar  5 03:17:00 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 03:17:01 2021 ] Eval epoch: 50
+[ Fri Mar  5 03:21:20 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20473077890097297.
+[ Fri Mar  5 03:21:20 2021 ] 	Top 1: 94.64%
+[ Fri Mar  5 03:21:20 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 03:21:21 2021 ] Training epoch: 51, LR: 0.0100
+[ Fri Mar  5 03:36:10 2021 ] 	Mean training loss: 0.0052 (BS 128: 0.0104).
+[ Fri Mar  5 03:36:10 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 03:36:11 2021 ] Eval epoch: 51
+[ Fri Mar  5 03:40:30 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20020739860483444.
+[ Fri Mar  5 03:40:30 2021 ] 	Top 1: 95.00%
+[ Fri Mar  5 03:40:30 2021 ] 	Top 5: 99.09%
+[ Fri Mar  5 03:40:31 2021 ] Training epoch: 52, LR: 0.0100
+[ Fri Mar  5 03:55:19 2021 ] 	Mean training loss: 0.0051 (BS 128: 0.0101).
+[ Fri Mar  5 03:55:19 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 03:55:19 2021 ] Eval epoch: 52
+[ Fri Mar  5 03:59:39 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19982184601748096.
+[ Fri Mar  5 03:59:39 2021 ] 	Top 1: 94.93%
+[ Fri Mar  5 03:59:39 2021 ] 	Top 5: 99.07%
+[ Fri Mar  5 03:59:40 2021 ] Training epoch: 53, LR: 0.0100
+[ Fri Mar  5 04:14:33 2021 ] 	Mean training loss: 0.0048 (BS 128: 0.0096).
+[ Fri Mar  5 04:14:33 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 04:14:33 2021 ] Eval epoch: 53
+[ Fri Mar  5 04:18:57 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.20204639987620923.
+[ Fri Mar  5 04:18:57 2021 ] 	Top 1: 94.93%
+[ Fri Mar  5 04:18:57 2021 ] 	Top 5: 99.19%
+[ Fri Mar  5 04:18:58 2021 ] Training epoch: 54, LR: 0.0100
+[ Fri Mar  5 04:33:50 2021 ] 	Mean training loss: 0.0049 (BS 128: 0.0097).
+[ Fri Mar  5 04:33:50 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 04:33:50 2021 ] Eval epoch: 54
+[ Fri Mar  5 04:38:13 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1949587758605568.
+[ Fri Mar  5 04:38:13 2021 ] 	Top 1: 94.95%
+[ Fri Mar  5 04:38:13 2021 ] 	Top 5: 99.21%
+[ Fri Mar  5 04:38:14 2021 ] Training epoch: 55, LR: 0.0100
+[ Fri Mar  5 04:53:06 2021 ] 	Mean training loss: 0.0048 (BS 128: 0.0095).
+[ Fri Mar  5 04:53:06 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 04:53:06 2021 ] Eval epoch: 55
+[ Fri Mar  5 04:57:30 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1961690383115118.
+[ Fri Mar  5 04:57:30 2021 ] 	Top 1: 95.07%
+[ Fri Mar  5 04:57:30 2021 ] 	Top 5: 99.21%
+[ Fri Mar  5 04:57:31 2021 ] Training epoch: 56, LR: 0.0010
+[ Fri Mar  5 05:12:21 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0092).
+[ Fri Mar  5 05:12:21 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 05:12:21 2021 ] Eval epoch: 56
+[ Fri Mar  5 05:16:45 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19668025176839105.
+[ Fri Mar  5 05:16:45 2021 ] 	Top 1: 94.95%
+[ Fri Mar  5 05:16:45 2021 ] 	Top 5: 99.16%
+[ Fri Mar  5 05:16:46 2021 ] Training epoch: 57, LR: 0.0010
+[ Fri Mar  5 05:31:37 2021 ] 	Mean training loss: 0.0048 (BS 128: 0.0096).
+[ Fri Mar  5 05:31:37 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 05:31:38 2021 ] Eval epoch: 57
+[ Fri Mar  5 05:35:59 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19718272724255387.
+[ Fri Mar  5 05:35:59 2021 ] 	Top 1: 94.95%
+[ Fri Mar  5 05:35:59 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 05:36:00 2021 ] Training epoch: 58, LR: 0.0010
+[ Fri Mar  5 05:50:50 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0093).
+[ Fri Mar  5 05:50:50 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 05:50:51 2021 ] Eval epoch: 58
+[ Fri Mar  5 05:55:13 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1972235493761088.
+[ Fri Mar  5 05:55:13 2021 ] 	Top 1: 95.13%
+[ Fri Mar  5 05:55:13 2021 ] 	Top 5: 99.09%
+[ Fri Mar  5 05:55:14 2021 ] Training epoch: 59, LR: 0.0010
+[ Fri Mar  5 06:10:03 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0093).
+[ Fri Mar  5 06:10:03 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 06:10:04 2021 ] Eval epoch: 59
+[ Fri Mar  5 06:14:27 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19679408322803543.
+[ Fri Mar  5 06:14:27 2021 ] 	Top 1: 95.02%
+[ Fri Mar  5 06:14:27 2021 ] 	Top 5: 99.19%
+[ Fri Mar  5 06:14:28 2021 ] Training epoch: 60, LR: 0.0010
+[ Fri Mar  5 06:29:19 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0090).
+[ Fri Mar  5 06:29:19 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 06:29:20 2021 ] Eval epoch: 60
+[ Fri Mar  5 06:33:42 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1978621564007231.
+[ Fri Mar  5 06:33:42 2021 ] 	Top 1: 95.13%
+[ Fri Mar  5 06:33:42 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 06:33:43 2021 ] Training epoch: 61, LR: 0.0010
+[ Fri Mar  5 06:48:33 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0092).
+[ Fri Mar  5 06:48:33 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 06:48:33 2021 ] Eval epoch: 61
+[ Fri Mar  5 06:52:57 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19435362914726803.
+[ Fri Mar  5 06:52:57 2021 ] 	Top 1: 95.18%
+[ Fri Mar  5 06:52:57 2021 ] 	Top 5: 99.14%
+[ Fri Mar  5 06:52:58 2021 ] Training epoch: 62, LR: 0.0010
+[ Fri Mar  5 07:07:47 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0089).
+[ Fri Mar  5 07:07:47 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 07:07:48 2021 ] Eval epoch: 62
+[ Fri Mar  5 07:12:10 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19651070481798213.
+[ Fri Mar  5 07:12:10 2021 ] 	Top 1: 95.00%
+[ Fri Mar  5 07:12:10 2021 ] 	Top 5: 99.16%
+[ Fri Mar  5 07:12:11 2021 ] Training epoch: 63, LR: 0.0010
+[ Fri Mar  5 07:27:00 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0092).
+[ Fri Mar  5 07:27:00 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 07:27:00 2021 ] Eval epoch: 63
+[ Fri Mar  5 07:31:21 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1960010887880344.
+[ Fri Mar  5 07:31:21 2021 ] 	Top 1: 95.00%
+[ Fri Mar  5 07:31:21 2021 ] 	Top 5: 99.16%
+[ Fri Mar  5 07:31:22 2021 ] Training epoch: 64, LR: 0.0010
+[ Fri Mar  5 07:46:15 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0090).
+[ Fri Mar  5 07:46:15 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 07:46:16 2021 ] Eval epoch: 64
+[ Fri Mar  5 07:50:50 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1943454426887911.
+[ Fri Mar  5 07:50:50 2021 ] 	Top 1: 95.07%
+[ Fri Mar  5 07:50:50 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 07:50:51 2021 ] Training epoch: 65, LR: 0.0010
+[ Fri Mar  5 08:05:49 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0089).
+[ Fri Mar  5 08:05:49 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 08:05:49 2021 ] Eval epoch: 65
+[ Fri Mar  5 08:10:26 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19355304867827466.
+[ Fri Mar  5 08:10:26 2021 ] 	Top 1: 95.04%
+[ Fri Mar  5 08:10:26 2021 ] 	Top 5: 99.14%
+[ Fri Mar  5 08:10:27 2021 ] Training epoch: 66, LR: 0.0010
+[ Fri Mar  5 08:25:23 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0091).
+[ Fri Mar  5 08:25:23 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 08:25:24 2021 ] Eval epoch: 66
+[ Fri Mar  5 08:29:51 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1932784674764012.
+[ Fri Mar  5 08:29:51 2021 ] 	Top 1: 95.11%
+[ Fri Mar  5 08:29:51 2021 ] 	Top 5: 99.14%
+[ Fri Mar  5 08:29:52 2021 ] Training epoch: 67, LR: 0.0010
+[ Fri Mar  5 08:44:42 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0090).
+[ Fri Mar  5 08:44:42 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 08:44:42 2021 ] Eval epoch: 67
+[ Fri Mar  5 08:49:09 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19483268300453865.
+[ Fri Mar  5 08:49:09 2021 ] 	Top 1: 95.02%
+[ Fri Mar  5 08:49:09 2021 ] 	Top 5: 99.09%
+[ Fri Mar  5 08:49:10 2021 ] Training epoch: 68, LR: 0.0010
+[ Fri Mar  5 09:03:58 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0090).
+[ Fri Mar  5 09:03:58 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 09:03:59 2021 ] Eval epoch: 68
+[ Fri Mar  5 09:08:25 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19412916270916217.
+[ Fri Mar  5 09:08:25 2021 ] 	Top 1: 95.04%
+[ Fri Mar  5 09:08:25 2021 ] 	Top 5: 99.16%
+[ Fri Mar  5 09:08:26 2021 ] Training epoch: 69, LR: 0.0010
+[ Fri Mar  5 09:23:22 2021 ] 	Mean training loss: 0.0044 (BS 128: 0.0089).
+[ Fri Mar  5 09:23:22 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 09:23:23 2021 ] Eval epoch: 69
+[ Fri Mar  5 09:27:50 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19615847662789748.
+[ Fri Mar  5 09:27:50 2021 ] 	Top 1: 95.02%
+[ Fri Mar  5 09:27:51 2021 ] 	Top 5: 99.07%
+[ Fri Mar  5 09:27:51 2021 ] Training epoch: 70, LR: 0.0010
+[ Fri Mar  5 09:42:47 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0091).
+[ Fri Mar  5 09:42:47 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 09:42:48 2021 ] Eval epoch: 70
+[ Fri Mar  5 09:47:18 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19421711251073118.
+[ Fri Mar  5 09:47:19 2021 ] 	Top 1: 95.04%
+[ Fri Mar  5 09:47:19 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 09:47:20 2021 ] Training epoch: 71, LR: 0.0010
+[ Fri Mar  5 10:02:17 2021 ] 	Mean training loss: 0.0047 (BS 128: 0.0093).
+[ Fri Mar  5 10:02:17 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 10:02:17 2021 ] Eval epoch: 71
+[ Fri Mar  5 10:06:49 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1943147280561139.
+[ Fri Mar  5 10:06:49 2021 ] 	Top 1: 94.95%
+[ Fri Mar  5 10:06:49 2021 ] 	Top 5: 99.12%
+[ Fri Mar  5 10:06:50 2021 ] Training epoch: 72, LR: 0.0010
+[ Fri Mar  5 10:21:43 2021 ] 	Mean training loss: 0.0044 (BS 128: 0.0088).
+[ Fri Mar  5 10:21:43 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 10:21:44 2021 ] Eval epoch: 72
+[ Fri Mar  5 10:26:11 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19379466810662832.
+[ Fri Mar  5 10:26:11 2021 ] 	Top 1: 95.18%
+[ Fri Mar  5 10:26:11 2021 ] 	Top 5: 99.21%
+[ Fri Mar  5 10:26:12 2021 ] Training epoch: 73, LR: 0.0010
+[ Fri Mar  5 10:41:12 2021 ] 	Mean training loss: 0.0045 (BS 128: 0.0090).
+[ Fri Mar  5 10:41:12 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 10:41:12 2021 ] Eval epoch: 73
+[ Fri Mar  5 10:45:50 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19912199054295862.
+[ Fri Mar  5 10:45:50 2021 ] 	Top 1: 94.95%
+[ Fri Mar  5 10:45:50 2021 ] 	Top 5: 99.14%
+[ Fri Mar  5 10:45:51 2021 ] Training epoch: 74, LR: 0.0010
+[ Fri Mar  5 11:00:51 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0092).
+[ Fri Mar  5 11:00:51 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 11:00:51 2021 ] Eval epoch: 74
+[ Fri Mar  5 11:05:25 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.1951682721738637.
+[ Fri Mar  5 11:05:25 2021 ] 	Top 1: 95.04%
+[ Fri Mar  5 11:05:25 2021 ] 	Top 5: 99.07%
+[ Fri Mar  5 11:05:26 2021 ] Training epoch: 75, LR: 0.0010
+[ Fri Mar  5 11:20:15 2021 ] 	Mean training loss: 0.0046 (BS 128: 0.0091).
+[ Fri Mar  5 11:20:15 2021 ] 	Time consumption: [Data]01%, [Network]98%
+[ Fri Mar  5 11:20:16 2021 ] Eval epoch: 75
+[ Fri Mar  5 11:24:43 2021 ] 	Mean test_tta_5 loss of 70 batches: 0.19543353448305945.
+[ Fri Mar  5 11:24:44 2021 ] 	Top 1: 95.00%
+[ Fri Mar  5 11:24:44 2021 ] 	Top 5: 99.21%
+[ Fri Mar  5 11:24:44 2021 ] Best accuracy: 0.9517881394296062
+[ Fri Mar  5 11:24:44 2021 ] Epoch number: 61
+[ Fri Mar  5 11:24:44 2021 ] Model name: ./work_dir/autsl_evaluation/msg3d_joint_aug_drop_resize_tta_retrain_lex40_train3
+[ Fri Mar  5 11:24:44 2021 ] Model total number of params: 5346292
+[ Fri Mar  5 11:24:44 2021 ] Weight decay: 0.0003
+[ Fri Mar  5 11:24:44 2021 ] Base LR: 0.1
+[ Fri Mar  5 11:24:44 2021 ] Batch Size: 128
+[ Fri Mar  5 11:24:44 2021 ] Forward Batch Size: 64
+[ Fri Mar  5 11:24:44 2021 ] Test Batch Size: 64

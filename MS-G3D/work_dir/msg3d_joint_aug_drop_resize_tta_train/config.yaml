@@ -1,0 +1,69 @@
+amp_opt_level: 1
+assume_yes: false
+base_lr: 0.1
+batch_size: 128
+checkpoint: null
+config: ./config/autsl-skeleton-evaluation/train_joint_tta.yaml
+debug: false
+device:
+- 4
+- 5
+eval_interval: 1
+eval_start: 1
+feeder: feeders.feeder.Feeder
+forward_batch_size: 64
+half: true
+ignore_weights:
+- fc.weight
+- fc.bias
+log_interval: 100
+model: model.msg3d.Model
+model_args:
+  graph: graph.autsl_joints.AdjMatrixGraph
+  num_class: 226
+  num_g3d_scales: 8
+  num_gcn_scales: 8
+  num_person: 1
+  num_point: 55
+model_saved_name: ''
+nesterov: true
+num_epoch: 75
+num_worker: 40
+optimizer: SGD
+optimizer_states: null
+phase: train
+print_log: true
+save_interval: 1
+save_score: false
+seed: 129
+show_topk:
+- 1
+- 5
+start_epoch: 0
+step:
+- 45
+- 55
+test_batch_size: 64
+test_feeder_args:
+  data_path: ../data_autsl/autsl/val_data_joint.npy
+  label_path: ../data_autsl/autsl/val_label.pkl
+train_feeder_args:
+  data_path: ../data_autsl/autsl/train_data_joint.npy
+  debug: false
+  label_path: ../data_autsl/autsl/train_label.pkl
+tta:
+- - false
+  - 1
+- - true
+  - 1
+- - false
+  - 1.1
+- - true
+  - 1.1
+- - false
+  - 0.9
+- - true
+  - 0.9
+weight_decay: 0.0003
+weights: null
+work_dir: ./work_dir/autsl_evaluation/msg3d_joint_aug_drop_resize_tta_retrain_lex40_train3

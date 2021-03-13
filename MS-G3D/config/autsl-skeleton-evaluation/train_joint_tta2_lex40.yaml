@@ -1,0 +1,47 @@
+
+# feeder
+feeder: feeders.feeder.Feeder
+train_feeder_args:
+  data_path: ../data_autsl/autsl/train_data_joint.npy
+  label_path: ../data_autsl/autsl/train_label.pkl
+  debug: False
+
+test_feeder_args:
+  data_path: ../data_autsl/autsl/val_data_joint.npy
+  label_path: ../data_autsl/autsl/val_label.pkl
+
+# model
+model: model.msg3d.Model
+model_args:
+  num_class: 226
+  num_point: 55
+  num_person: 1
+  num_gcn_scales: 8
+  num_g3d_scales: 8
+  graph: graph.autsl_joints.AdjMatrixGraph
+
+# optim
+# weight_decay: 0.0005
+weight_decay: 0.0003
+# base_lr: 0.05
+base_lr: 0.1
+step: [40, 55]
+
+# training
+num_epoch: 70
+device: [2]
+# batch_size: 32
+batch_size: 128
+# forward_batch_size: 32
+forward_batch_size: 64
+# test_batch_size: 32
+test_batch_size: 64
+nesterov: True
+
+#tta [[flip_bool (boolean), resize (float)]]
+tta : [
+  [False,1],
+  [True,1]
+  ]
+
+weights: /home/temporal2/mvazquez/skeleton_action_recognition/MS-G3D/pretrained-models/lse/joint/joint_aug_drop_resize_tta_retrain_wlasl_train2_weights-53-901_954.pt

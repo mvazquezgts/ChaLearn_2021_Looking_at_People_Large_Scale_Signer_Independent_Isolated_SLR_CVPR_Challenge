@@ -1,0 +1,23 @@
+[ Mon Mar  8 03:54:00 2021 ] USE TTA:
+[ Mon Mar  8 03:54:00 2021 ] tta 0: test_tta_0 > [False, 1]
+[ Mon Mar  8 03:54:00 2021 ] tta 1: test_tta_1 > [True, 1]
+[ Mon Mar  8 03:54:00 2021 ] tta 2: test_tta_2 > [False, 1.1]
+[ Mon Mar  8 03:54:00 2021 ] tta 3: test_tta_3 > [True, 1.1]
+[ Mon Mar  8 03:54:00 2021 ] tta 4: test_tta_4 > [False, 0.9]
+[ Mon Mar  8 03:54:00 2021 ] tta 5: test_tta_5 > [True, 0.9]
+[ Mon Mar  8 03:54:03 2021 ] Model total number of params: 5346292
+[ Mon Mar  8 03:54:03 2021 ] Loading weights from /home/temporal2/mvazquez/skeleton_action_recognition/MS-G3D/pretrained-models/autsl_eval/B1_T2.pt
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_0
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_1
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_2
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_3
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_4
+[ Mon Mar  8 03:54:03 2021 ] Load dataset: test_tta_5
+[ Mon Mar  8 03:54:03 2021 ] Model:   model.msg3d.Model
+[ Mon Mar  8 03:54:03 2021 ] Weights: /home/temporal2/mvazquez/skeleton_action_recognition/MS-G3D/pretrained-models/autsl_eval/B1_T2.pt
+[ Mon Mar  8 03:54:03 2021 ] Eval epoch: 1
+[ Mon Mar  8 04:02:15 2021 ] 	Mean test_tta_5 loss of 139 batches: 0.21938106355721318.
+[ Mon Mar  8 04:02:15 2021 ] 	Top 1: 94.36%
+[ Mon Mar  8 04:02:15 2021 ] 	Top 5: 99.32%
+[ Mon Mar  8 04:02:15 2021 ] Done.
+
