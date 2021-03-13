@@ -1,8 +1,8 @@
-# ChaLearn UVIGO
+# Solution for ChaLearn 2021 Looking at People Large Scale Signer Independent Isolated SLR CVPR Challenge @ CVPR'2021 by GTM - Uvigo
 
-En este repositorio se encuentra el código e indicaciones para su utilización.
+In this repository you can find the code and instructions for its use.
 
-Dicha implementación parte de la implementación descrita en "Disentangling and Unifying Graph Convolutions for Skeleton-Based Action Recognition", CVPR 2020 Oral.
+This implementation is based on the implementation described in "Disentangling and Unifying Graph Convolutions for Skeleton-Based Action Recognition", CVPR 2020 Oral.
 [[PDF](https://arxiv.org/pdf/2003.14111.pdf)]
 
 
