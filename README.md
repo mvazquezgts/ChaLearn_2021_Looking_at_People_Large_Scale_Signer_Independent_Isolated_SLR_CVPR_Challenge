@@ -56,21 +56,21 @@ Our implementation is based on  keypoints, these keypoints had been extracted us
 
 ```
   - keypoints/
-  - autsl_generateOpenPoseKps.py
-  - train/
-    - signer0_sample1000_color/
-      - signer0_sample1000_color_000000000000_keypoints.json
-      ...
-      - signer0_sample1000_color_000000000000_keypoints.json
-    - val/
-    - test/
-    - splits/
-      - train
+    - autsl_generateOpenPoseKps.py
+    - train/
+      - signer0_sample1000_color/
         - signer0_sample1000_color_000000000000_keypoints.json
         ...
-        - signer0_sample1000_color_000000000042_keypoints.json
-      - val
-      - test
+        - signer0_sample1000_color_000000000000_keypoints.json
+      - val/
+      - test/
+      - splits/
+        - train
+          - signer0_sample1000_color_000000000000_keypoints.json
+          ...
+          - signer0_sample1000_color_000000000042_keypoints.json
+        - val
+       - test
 ```
 
 
@@ -155,9 +155,29 @@ In the folder called MS-3GD you will find all the code used in the development o
 ```
 
 
-## MS-3GD Modifications
-### Graph Definitions.
+## MS-3GD Implementation.
+### Keypoints & Graph Definitions.
+As indicated above, our implementation is fed only by the keypoints extracted from the videos in the dataset.
+#### JOINTS:
+Using Openpose, we obtain 2D real-time multi-person keypoint detection:
+ * 25-keypoint body/foot keypoint estimation
+ * 2x21-keypoint hand keypoint estimation.
+These would be stored in the folder called /keypoints .
+From these keypoints we will discard the lower keypoints and concatenate all of them as follows: kps_body + kps_hand_left + kps_hand_right, a total of 54 keypoints or joints.
+The result and its id can be seen in the figure below.
 
+#### BONES:
+We have defined as 'bones' the difference in x,y between two adjacent points. Defining up to 68 'bones'.
+The result and its id can be seen in the figure below.
+
+![alt General Structure](fact_sheets/figures/keypoints_bones.PNG?raw=true "Id joints and bones")
+
+## GRAPH
+Given the joints and bones, and based on their idx, two graphs have been defined for each of the trained and combined models:
+* MS-G3D\graph\autsl_bones.py
+* MS-G3D\graph\autsl_joints.py
+
+These can be seen grouped in the following excel:
 
 
 ### Data-Augmentation
@@ -239,7 +259,7 @@ python3 ensemble_multi.py --set test --inputs test/msg3d_joint_aug_drop_resize_t
 
 -- csv. It will generate a file named **'predictions.csv'** in **MS-3GD/** with the output resulting from the combination process.
 
-** Note:** The file **MS-3GD/predictions.csv** present in this repository corresponds to the file subsequently uploaded to the platform for evaluation.
+**Note:** The file **MS-3GD/predictions.csv** present in this repository corresponds to the file subsequently uploaded to the platform for evaluation.
 
 ## Performance
 
