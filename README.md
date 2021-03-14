@@ -75,7 +75,7 @@ Our implementation is based on  keypoints, these keypoints had been extracted us
 
 
 #### Download keypoints folders: 
-**Link:** https://drive.google.com/file/d/1otwvPYtkgB0DaTBLRQL9Yrrr75VzwA9U/view?usp=sharing
+**Link:** https://drive.google.com/file/d/1_kXRRddU8szreHR-mOKOsJduhEtZcWnz/view?usp=sharing
 
 Extract keeping the directory structure.
 
