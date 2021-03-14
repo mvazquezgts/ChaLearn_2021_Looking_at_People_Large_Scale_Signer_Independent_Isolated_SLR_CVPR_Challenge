@@ -176,19 +176,20 @@ We have trained two models, using joints on the one hand and bones on the other:
 ```
 python main_tta.py --work-dir ./work_dir/msg3d_joint_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_joint_tta.yaml --half --device 0 1
 python main_tta.py --work-dir ./work_dir/msg3d_bone_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_bone_tta.yaml --half --device 0 1
-
 ```
 -- word-dir. The directory where all the information generated in the training process will be stored: logs, chekpoints and weights.
+
 -- config. Configuration file used. The path to the files in the /data folder to be used in this process is defined, in addition to all the hyperparameters used in the training phase.
+
 -- device. Indicate the gpu to use. The training requires approximately 23000MB of RAM, you can use a single GPU or several GPUs. In case you do not have enough computational resources you should reduce the batch-size by adding the following parameters by modifying the configuration file or by command line: ' --batch size 64 --forward_batch_size 32 test_batch_size 32 '
 
 **Note:** From the training phase, with which the reported performances were obtained, the training output is included in the repository in the **work_dir** directory present in this repository, except for the weights and checkpoints which have not been included for space reasons. 
-* work_dir/msg3d_joint_aug_drop_resize_tta_train
-* work_dir/msg3d_bone_aug_drop_resize_tta_train
+* *work_dir/msg3d_joint_aug_drop_resize_tta_train*
+* *work_dir/msg3d_bone_aug_drop_resize_tta_train*
 
 In addition, the pre-entered models will be placed in the folder **pretrained-models/**
-* pretrained-model/msg3d_joint_aug_drop_resize_tta_train.pt
-* pretrained-models/msg3d_bone_aug_drop_resize_tta_train.pt
+* *pretrained-model/msg3d_joint_aug_drop_resize_tta_train.pt*
+* *pretrained-models/msg3d_bone_aug_drop_resize_tta_train.pt*
 
 
 ## Evaluating  (Optional)
@@ -201,12 +202,16 @@ python main_tta.py --work-dir ./eval/msg3d_bone_aug_drop_resize_tta --config ./c
 
 python3 ensemble_multi.py --set val --inputs eval/msg3d_joint_aug_drop_resize_tta/ eval/msg3d_bone_aug_drop_resize_tta/
 ```
--- work-dir. Directorio de salida de la fase de evaluación: logs and outputs.
--- config. Fichero de configuración a utilizar.
--- weights. Ruta del modelo preentrenado utilizado para estimar las predicciones.
+-- work-dir. Evaluation phase output directory: logs and outputs.
+
+-- config. Configuration file to be used.
+
+-- weights. Path of the pre-trained model used to estimate the predictions.
+
 -- device. Indicate the gpu to use.
 
 -- set. Specify which set we are combining 'val' or 'test'.
+
 -- inputs. Define the paths where the output files of the evaluation phase from the command that precedes it are located. Up to 2 models separated by a space are allowed. In case you want to combine more than 2 outputs, just change the **nargs** parameter inside the ensemble_multi.py file depending on how many results you want to combine.
 
 As can be seen in the previous commands, it uses the pre-trained model and work-dir included in this repository.
@@ -225,9 +230,13 @@ python3 ensemble_multi.py --set test --inputs test/msg3d_joint_aug_drop_resize_t
 ```
 
 -- work-dir. Evaluation phase output directory: logs and outputs.
+
 -- config. Configuration file to be used.
+
 -- weights. Path of the pre-trained model used to estimate the predictions.
+
 -- device. Indicate the gpu to use.
+
 -- csv. It will generate a file named **'predictions.csv'** in **MS-3GD/** with the output resulting from the combination process.
 
 ** Note:** The file **MS-3GD/predictions.csv** present in this repository corresponds to the file subsequently uploaded to the platform for evaluation.
