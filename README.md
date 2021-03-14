@@ -162,12 +162,15 @@ As indicated above, our implementation is fed only by the keypoints extracted fr
 Using Openpose, we obtain 2D real-time multi-person keypoint detection:
  * 25-keypoint body/foot keypoint estimation
  * 2x21-keypoint hand keypoint estimation.
-These would be stored in the folder called /keypoints .
+These would be stored in the folder called /keypoints.
+
 From these keypoints we will discard the lower keypoints and concatenate all of them as follows: kps_body + kps_hand_left + kps_hand_right, a total of 54 keypoints or joints.
+
 The result and its id can be seen in the figure below.
 
 #### BONES:
 We have defined as 'bones' the difference in x,y between two adjacent points. Defining up to 68 'bones'.
+
 The result and its id can be seen in the figure below.
 
 ![alt General Structure](fact_sheets/figures/keypoints_bones.PNG?raw=true "Id joints and bones")
@@ -177,7 +180,7 @@ Given the joints and bones, and based on their idx, two graphs have been defined
 * MS-G3D\graph\autsl_bones.py
 * MS-G3D\graph\autsl_joints.py
 
-These can be seen grouped in the following excel:
+These can be seen grouped in the following excel: [Definition graphs](fact_sheets/kps_bones_edges.xlsx)
 
 
 ### Data-Augmentation
