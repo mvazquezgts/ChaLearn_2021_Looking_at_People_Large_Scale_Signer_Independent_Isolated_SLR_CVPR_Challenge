@@ -179,7 +179,7 @@ python main_tta.py --work-dir ./work_dir/msg3d_bone_aug_drop_resize_tta_train --
 ```
 -- word-dir. The directory where all the information generated in the training process will be stored: logs, chekpoints and weights.
 
--- config. Configuration file used. The path to the files in the /data folder to be used in this process is defined, in addition to all the hyperparameters used in the training phase.
+-- config. Configuration file used: The path to the information that will feed the model present in the folder **/data** used in this process, in addition to all the hyperparameters used in the training phase.
 
 -- device. Indicate the gpu to use. The training requires approximately 23000MB of RAM, you can use a single GPU or several GPUs. In case you do not have enough computational resources you should reduce the batch-size by adding the following parameters by modifying the configuration file or by command line: ' --batch size 64 --forward_batch_size 32 test_batch_size 32 '
 
@@ -194,7 +194,7 @@ In addition, the pre-entered models will be placed in the folder **pretrained-mo
 
 ## Evaluating  (Optional)
 
-To evaluate the performance we will use the weights corresponding to the epoch with the best accuracy from the previous experiments. And subsequently, we will combine their outputs.
+To evaluate the performance of combining the outputs of the models on joints and on bones. We will use the weights corresponding to the epoch with the best accuracy from the previous experiments present in the folder called **/pretrained-models**. And subsequently, we will combine their outputs by obtaining the accuracy in comparison with the validation labels.
 
 ```
 python main_tta.py --work-dir ./eval/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/val_joint_tta.yaml --weights pretrained-models\msg3d_joint_aug_drop_resize_tta_train.pt --device 0
@@ -219,7 +219,7 @@ As can be seen in the previous commands, it uses the pre-trained model and work-
 ## Generate predictions.csv
 
 To generate the prediction file that would later be uploaded to the platform, we evaluated using the previous weights in a similar way to how we have evaluated, but in this case using the data from the test set. 
-This test set lacks the corresponding annotations, so the performance of the following executions does not provide any value hasta disponer de sus correspondientes anotaciones que actualmente todavía no están liberadas y hasta subir las propias predicciones a la plataforma no se puede obtener el resultado.
+This test set lacks the corresponding annotations, so the performance of the following executions does not provide any value until the corresponding annotations are available, which are currently not yet released and the results cannot be obtained until the file predictions.csv are uploaded to the platform.
 This time, we use the parameter '--csv' to generate the corresponding file 'predictions.csv'.
 
 ```
