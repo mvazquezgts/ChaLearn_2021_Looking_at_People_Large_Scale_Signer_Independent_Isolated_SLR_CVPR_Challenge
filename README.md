@@ -1,6 +1,6 @@
 # Solution for ChaLearn 2021 Looking at People Large Scale Signer Independent Isolated SLR CVPR Challenge @ CVPR'2021 by GTM - Uvigo
 
-In this repository you can find the code and instructions for its use.
+In this repository you can find the code, logs, pretrained models and instructions for its use.
 
 ![alt General Structure](fact_sheets/figures/general_structure.PNG?raw=true "General Structure")
 
@@ -30,11 +30,11 @@ Workpace is composed for 4 primary folders:
 
 To train and evaluate the models, only the MS-G3D and data folders are needed. In the data folder, the network input features are generated and stored from the keypoints that have been extracted from the initial dataset.
 
-### Download Datasets
+### Dataset (Optional)
 
 The dataset used is called AUTSL. It could be downloaded from: http://chalearnlap.cvc.uab.es/dataset/40/description/ 
 
-Note: decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
+**Note:** decryption keys are provided on Codalab after registration, based on the schedule of the challenge.
 
 Once downloaded and unzipped, we will only keep the videos with the suffix _color, which we will place inside the folder called 'color'. In our implementation we have used only the videos from this folder.
 
@@ -50,7 +50,7 @@ Once downloaded and unzipped, we will only keep the videos with the suffix _colo
 ```
 
 
-### Generate Keypoints
+### Keypoints (Optional)
 
 Our implementation is based on  keypoints, these keypoints had been extracted using OpenPose : https://github.com/CMU-Perceptual-Computing-Lab/openpose
 
@@ -75,7 +75,7 @@ Our implementation is based on  keypoints, these keypoints had been extracted us
 
 
 #### Download keypoints folders: 
-Link: https://drive.google.com/file/d/1otwvPYtkgB0DaTBLRQL9Yrrr75VzwA9U/view?usp=sharing
+**Link:** https://drive.google.com/file/d/1otwvPYtkgB0DaTBLRQL9Yrrr75VzwA9U/view?usp=sharing
 
 Extract keeping the directory structure.
 
@@ -100,7 +100,7 @@ python autsl_generateOpenPoseKps.py --set test --split 0 --gpu 0
 python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 ```
 
-### Generating Data
+### Data
 
 ```
   - data/
@@ -115,7 +115,7 @@ python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 In this section we will prepare the labels files and features files '.npy' that we will use to feed our network.
 
 #### Download
-Link: https://drive.google.com/file/d/1spuwftpg5WloUgv7L8ia4Xcxt8Sy5ZjZ/view?usp=sharing
+**Link:** https://drive.google.com/file/d/1spuwftpg5WloUgv7L8ia4Xcxt8Sy5ZjZ/view?usp=sharing
 
 Extract keep the directory mentioned.
 
@@ -133,21 +133,65 @@ python autsl_gendata.py
 python gen_bone_data.py --dataset autsl
 ```
 
-As well as the 'dataset' and 'keypoints' folders are not necessary to use our implementation. It is key that the features that will feed our network are available in data/autsl.
+**Note:** As well as the 'dataset' and 'keypoints' folders are not necessary to use our implementation. It is key that the features that will feed our network are available in data/autsl.
 
-## Training 
+# MS-3GD
+
+In the folder called MS-3GD you will find all the code used in the development of the solution presented to the challenge, as well as the logs and pre-trained models with which to reproduce the results finally reported.
+
+```
+  - MS-3GD/
+    - config/
+    - eval/
+    - feeders/
+    - graph/
+    - model/
+    - pretrained-models/
+    - test/
+    - work_dir/
+    - ensemble_multi.py
+    - main_tta.py
+    - utils.py
+```
+
+
+## MS-3GD Modifications
+### Graph Definitions.
+
+
+
+### Data-Augmentation
+
+
+
+### TTA (Test Time Augmentation)
+
+
+
+
+## Training  (Optional)
 
 We have trained two models, using joints on the one hand and bones on the other:
 
 ```
-python main_tta.py --work-dir ./work_dir/autsl_evaluation/msg3d_joint_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_joint_tta.yaml --half --device 0 1
-python main_tta.py --work-dir ./work_dir/autsl_evaluation/msg3d_bone_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_bone_tta.yaml --half --device 0 1
+python main_tta.py --work-dir ./work_dir/msg3d_joint_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_joint_tta.yaml --half --device 0 1
+python main_tta.py --work-dir ./work_dir/msg3d_bone_aug_drop_resize_tta_train --config ./config/autsl-skeleton/train_bone_tta.yaml --half --device 0 1
 
 ```
--- device X. Indicate the gpu to use. The training requires approximately 23000MB of RAM, you can use a single GPU or several GPUs. In case you do not have enough computational resources you should reduce the batch-size by adding the following parameters by modifying the configuration file or by command line: ' --batch size 64 --forward_batch_size 32 test_batch_size 32 '
+-- word-dir. The directory where all the information generated in the training process will be stored: logs, chekpoints and weights.
+-- config. Configuration file used. The path to the files in the /data folder to be used in this process is defined, in addition to all the hyperparameters used in the training phase.
+-- device. Indicate the gpu to use. The training requires approximately 23000MB of RAM, you can use a single GPU or several GPUs. In case you do not have enough computational resources you should reduce the batch-size by adding the following parameters by modifying the configuration file or by command line: ' --batch size 64 --forward_batch_size 32 test_batch_size 32 '
+
+**Note:** From the training phase, with which the reported performances were obtained, the training output is included in the repository in the **work_dir** directory present in this repository, except for the weights and checkpoints which have not been included for space reasons. 
+* work_dir/msg3d_joint_aug_drop_resize_tta_train
+* work_dir/msg3d_bone_aug_drop_resize_tta_train
+
+In addition, the pre-entered models will be placed in the folder **pretrained-models/**
+* pretrained-model/msg3d_joint_aug_drop_resize_tta_train.pt
+* pretrained-models/msg3d_bone_aug_drop_resize_tta_train.pt
 
 
-## Evaluating
+## Evaluating  (Optional)
 
 To evaluate the performance we will use the weights corresponding to the epoch with the best accuracy from the previous experiments. And subsequently, we will combine their outputs.
 
@@ -157,12 +201,20 @@ python main_tta.py --work-dir ./eval/msg3d_bone_aug_drop_resize_tta --config ./c
 
 python3 ensemble_multi.py --set val --inputs eval/msg3d_joint_aug_drop_resize_tta/ eval/msg3d_bone_aug_drop_resize_tta/
 ```
+-- work-dir. Directorio de salida de la fase de evaluación: logs and outputs.
+-- config. Fichero de configuración a utilizar.
+-- weights. Ruta del modelo preentrenado utilizado para estimar las predicciones.
+-- device. Indicate the gpu to use.
 
+-- set. Specify which set we are combining 'val' or 'test'.
+-- inputs. Define the paths where the output files of the evaluation phase from the command that precedes it are located. Up to 2 models separated by a space are allowed. In case you want to combine more than 2 outputs, just change the **nargs** parameter inside the ensemble_multi.py file depending on how many results you want to combine.
+
+As can be seen in the previous commands, it uses the pre-trained model and work-dir included in this repository.
 
 ## Generate predictions.csv
 
 To generate the prediction file that would later be uploaded to the platform, we evaluated using the previous weights in a similar way to how we have evaluated, but in this case using the data from the test set. 
-This test set lacks the corresponding annotations, so the performance of the following executions does not provide any value.
+This test set lacks the corresponding annotations, so the performance of the following executions does not provide any value hasta disponer de sus correspondientes anotaciones que actualmente todavía no están liberadas y hasta subir las propias predicciones a la plataforma no se puede obtener el resultado.
 This time, we use the parameter '--csv' to generate the corresponding file 'predictions.csv'.
 
 ```
@@ -172,8 +224,16 @@ python main_tta.py --work-dir ./test/msg3d_bone_aug_drop_resize_tta --config ./c
 python3 ensemble_multi.py --set test --inputs test/msg3d_joint_aug_drop_resize_tta/ test/msg3d_bone_aug_drop_resize_tta/ --csv
 ```
 
+-- work-dir. Evaluation phase output directory: logs and outputs.
+-- config. Configuration file to be used.
+-- weights. Path of the pre-trained model used to estimate the predictions.
+-- device. Indicate the gpu to use.
+-- csv. It will generate a file named **'predictions.csv'** in **MS-3GD/** with the output resulting from the combination process.
+
+** Note:** The file **MS-3GD/predictions.csv** present in this repository corresponds to the file subsequently uploaded to the platform for evaluation.
 
 ## Performance
+
 Accuracy on test: 0.961500
 
 
