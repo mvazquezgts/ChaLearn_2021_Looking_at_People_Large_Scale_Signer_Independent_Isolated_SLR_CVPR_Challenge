@@ -185,11 +185,42 @@ These can be seen grouped in the following excel: [Definition graphs](fact_sheet
 
 ### Data-Augmentation
 
-
+A number of data augmentation strategies have been applied:
+* Flip all the frames of a video previous to its entry into the model, with a probability of 50%.
+* Randomly discard joints and bones. With a probability of 10% and applying an increment of this probability based on the confidence value estimated by Openpose for each of these keypoints, discarding with higher probability the keypoints with a lower confidence value.
+* Modify the size and thus the spacing between keypoints randomly. Within a range from 0.9% to 1.1% of the original size.
 
 ### TTA (Test Time Augmentation)
 
+The following configuration is used for the training phase:
+```
+#tta [[flip_bool (boolean), resize (float)]]
+tta : [
+  [False,1],
+  [True,1],
+  [False,1.1],
+  [True,1.1],
+  [False,0.9],
+  [True,0.9]
+  ]
+```
 
+The following configuration is used in the phases of evaluation and generation of the prediction file:
+```
+#tta [[flip_bool (boolean), resize (float)]]
+tta : [
+  [False,1],
+  [True,1],
+  [False,1.1],
+  [True,1.1],
+  [False,1.05],
+  [True,1.05],
+  [False,0.9],
+  [True,0.9],
+  [False,0.95],
+  [True,0.95]
+  ]
+```
 
 
 ## Training  (Optional)
