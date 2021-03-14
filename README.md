@@ -175,7 +175,7 @@ The result and its id can be seen in the figure below.
 
 ![alt General Structure](fact_sheets/figures/keypoints_bones.PNG?raw=true "Id joints and bones")
 
-## GRAPH
+#### GRAPH
 Given the joints and bones, and based on their idx, two graphs have been defined for each of the trained and combined models:
 * MS-G3D\graph\autsl_bones.py
 * MS-G3D\graph\autsl_joints.py
