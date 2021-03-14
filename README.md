@@ -180,7 +180,7 @@ Given the joints and bones, and based on their idx, two graphs have been defined
 * MS-G3D\graph\autsl_bones.py
 * MS-G3D\graph\autsl_joints.py
 
-These can be seen grouped in the following excel: [Definition graphs](fact_sheets/kps_bones_edges.xlsx)
+These can be seen grouped in the following excel: [Definition of graphs](fact_sheets/kps_bones_edges.xlsx)
 
 
 ### Data-Augmentation
