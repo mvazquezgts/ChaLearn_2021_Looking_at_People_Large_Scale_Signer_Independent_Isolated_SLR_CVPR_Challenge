@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--label_folder',
-                        default='data_autsl/autsl',
+                        default='data/autsl',
                         help='the work folder for storing results')
     
     parser.add_argument('--set',
