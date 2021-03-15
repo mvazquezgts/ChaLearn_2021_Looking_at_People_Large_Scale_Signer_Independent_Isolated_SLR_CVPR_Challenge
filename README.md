@@ -250,8 +250,8 @@ The pre-trained models are placed in the folder **pretrained-models/**
 To evaluate the performance of combining the outputs of the models of joints and bones, we used the weights located in the folder called **/pretrained-models**. Then, we combine their outputs and obtain the performance with respect to the validation labels.
 
 ```
-python main_tta.py --work-dir ./eval/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/val_joint_tta.yaml --weights pretrained-models\msg3d_joint_aug_drop_resize_tta_train.pt --device 0
-python main_tta.py --work-dir ./eval/msg3d_bone_aug_drop_resize_tta --config ./config/autsl-skeleton/val_bone_tta.yaml --weights pretrained-models\msg3d_bone_aug_drop_resize_tta_train.pt --device 0
+python main_tta.py --work-dir ./eval/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/val_joint_tta.yaml --weights pretrained-models/msg3d_joint_aug_drop_resize_tta_train.pt --device 0
+python main_tta.py --work-dir ./eval/msg3d_bone_aug_drop_resize_tta --config ./config/autsl-skeleton/val_bone_tta.yaml --weights pretrained-models/msg3d_bone_aug_drop_resize_tta_train.pt --device 0
 
 python3 ensemble_multi.py --set val --inputs eval/msg3d_joint_aug_drop_resize_tta/ eval/msg3d_bone_aug_drop_resize_tta/
 ```
@@ -278,8 +278,8 @@ This test set lacks the corresponding annotations, so the performance of the fol
 This time, we use the parameter '--csv' to generate the corresponding file 'predictions.csv'.
 
 ```
-python main_tta.py --work-dir ./test/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/test_joint_tta.yaml --weights pretrained-models\msg3d_joint_aug_drop_resize_tta_train.pt --device 0
-python main_tta.py --work-dir ./test/msg3d_bone_aug_drop_resize_tta --config ./config/autsl-skeleton/test_bone_tta.yaml --weights pretrained-models\msg3d_bone_aug_drop_resize_tta_train.pt --device 0
+python main_tta.py --work-dir ./test/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/test_joint_tta.yaml --weights pretrained-models/msg3d_joint_aug_drop_resize_tta_train.pt --device 0
+python main_tta.py --work-dir ./test/msg3d_bone_aug_drop_resize_tta --config ./config/autsl-skeleton/test_bone_tta.yaml --weights pretrained-models/msg3d_bone_aug_drop_resize_tta_train.pt --device 0
 
 python3 ensemble_multi.py --set test --inputs test/msg3d_joint_aug_drop_resize_tta/ test/msg3d_bone_aug_drop_resize_tta/ --csv
 ```

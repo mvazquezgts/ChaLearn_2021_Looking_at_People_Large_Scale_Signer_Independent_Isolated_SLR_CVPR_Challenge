@@ -1,8 +1,8 @@
 # feeder
 feeder: feeders.feeder.Feeder
 test_feeder_args:
-  data_path: ../data_autsl/autsl/val_data_bone.npy
-  label_path: ../data_autsl/autsl/val_label.pkl
+  data_path: ../data/autsl/val_data_bone.npy
+  label_path: ../data/autsl/val_label.pkl
   debug: False
 
 # model
