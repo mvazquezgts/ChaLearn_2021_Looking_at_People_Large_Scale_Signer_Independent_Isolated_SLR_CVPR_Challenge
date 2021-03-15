@@ -194,35 +194,19 @@ A number of data augmentation strategies have been applied:
 
 Data augmentation is used also in inference and results are averaged.
 
-The following configuration is used for the training phase:
+The following configuration is used for the training and evaluation phase:
 ```
 #tta [[flip_bool (boolean), resize (float)]]
 tta : [
   [False,1],
   [True,1],
   [False,1.1],
-  [True,1.1],
+  [True,1.1]
   [False,0.9],
   [True,0.9]
   ]
 ```
 
-The following configuration is used in the phases of evaluation and generation of the prediction file:
-```
-#tta [[flip_bool (boolean), resize (float)]]
-tta : [
-  [False,1],
-  [True,1],
-  [False,1.1],
-  [True,1.1],
-  [False,1.05],
-  [True,1.05],
-  [False,0.9],
-  [True,0.9],
-  [False,0.95],
-  [True,0.95]
-  ]
-```
 
 
 ## Training  (Optional)

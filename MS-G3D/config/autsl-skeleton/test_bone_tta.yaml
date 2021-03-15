@@ -22,7 +22,7 @@ device: 0
 test_batch_size: 32
 weights: /home/temporal2/mvazquez/skeleton_action_recognition/MS-G3D/pretrained-models/autsl/data2/bone/weights-65-14235.pt
 
-work_dir: ./eval/autsl-evaluation/fffff
+work_dir: ./eval/autsl-evaluation/folder_test_bone
 save_score: True
 
 #tta [[flip_bool (boolean), resize (float)]]
@@ -31,10 +31,6 @@ tta : [
   [True,1],
   [False,1.1],
   [True,1.1],
-  [False,1.05],
-  [True,1.05],
   [False,0.9],
-  [True,0.9],
-  [False,0.95],
-  [True,0.95]
+  [True,0.9]
   ]

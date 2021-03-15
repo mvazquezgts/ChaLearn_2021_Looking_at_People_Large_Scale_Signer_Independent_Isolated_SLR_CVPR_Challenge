@@ -22,7 +22,7 @@ device: 0
 test_batch_size: 32
 weights: pretrained-models\msg3d_joint_aug_drop_resize_tta_train.pt
 
-work_dir: ./eval/autsl-evaluation/fffff
+work_dir: ./eval/autsl-evaluation/folder_val_bone
 save_score: True
 
 #tta [[flip_bool (boolean), resize (float)]]
@@ -34,17 +34,3 @@ tta : [
   [False,0.9],
   [True,0.9]
   ]
-
-
-# tta : [
-#   [False,1],
-#   [True,1],
-#   [False,1.1],
-#   [True,1.1],
-#   [False,0.9],
-#   [True,0.9],
-#   [False,1.05],
-#   [True,1.05],
-#   [False,0.95],
-#   [True,0.95]
-#   ]
