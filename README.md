@@ -265,7 +265,7 @@ python3 ensemble_multi.py --set val --inputs eval/msg3d_joint_aug_drop_resize_tt
 
 -- set. Specify which set we are combining 'val' or 'test'.
 
--- inputs. Define the paths where the output files of the evaluation phase from the command that precedes it are located. Up to 2 models separated by a space are allowed. In case you want to combine more than 2 outputs, just change the **nargs** parameter inside the ensemble_multi.py file depending on how many results you want to combine.
+-- inputs. Define the paths where the output files of the evaluation phase from the command that precedes it are located.
 
 As can be seen in the previous commands, it uses the pre-trained model and work-dir included in this repository.
 
