@@ -28,7 +28,7 @@ Workpace is composed for 4 primary folders:
   - MS-G3D/
 ```
 
-To train and evaluate the models, only the MS-G3D and data folders are needed. In the data folder, the network input features are generated and stored from the keypoints that have been extracted from the initial dataset.
+To train and evaluate the models, only the MS-G3D and data folders are needed. In the data folder, the network input features are generated from the keypoints extracted extracted from the videos of the original dataset.
 
 ### Dataset (Optional)
 
@@ -87,7 +87,7 @@ Installation guide: https://github.com/CMU-Perceptual-Computing-Lab/openpose/blo
 
 Then, depending on the path where you have installed Openpose, edit the file keypoints/autsl_generateOpenPoseKps.py. To do this, modify the path of the variable "openpose_models_folder". Ex) openpose_models_folder = '/home/gts/projects/mvazquez/openpose/models'.
 
-Once Openpose is installed. The video set has been divided into small parts that allow it to run on different GPUs. As requirements at least 800 MB of GPU memory will be necessary to use the configuration used.
+Once Openpose is installed. The video set has been split into small parts that allow it to run on different GPUs. As requirements at least 800 MB of GPU memory will be necessary to use the configuration used.
 
 ```
 cd keypoints
@@ -119,7 +119,7 @@ In this section we will prepare the labels files and features files '.npy' that 
 
 Extract keep the directory mentioned.
 
-#### Generate features data.
+#### Generate features data. (Optional)
 Inside the downloaded and unzipped file, you will find all the folders, files and codes used to generate from the keypoints the data prepared to feed the network. But if you want to repeat or replicate the routine that has been followed, you must run the following commands:
 
 ```
@@ -133,7 +133,7 @@ python autsl_gendata.py
 python gen_bone_data.py --dataset autsl
 ```
 
-**Note:** As well as the 'dataset' and 'keypoints' folders are not necessary to use our implementation. It is key that the features that will feed our network are available in data/autsl.
+**Note:** As well as the 'dataset' and 'keypoints' folders are not necessary to use our implementation. It is key that the features that will feed our network are available in **data/autsl**.
 
 # MS-3GD
 
@@ -164,7 +164,7 @@ Using Openpose, we obtain 2D real-time multi-person keypoint detection:
  * 2x21-keypoint hand keypoint estimation.
 These would be stored in the folder called /keypoints.
 
-From these keypoints we will discard the lower keypoints and concatenate all of them as follows: kps_body + kps_hand_left + kps_hand_right, a total of 54 keypoints or joints.
+From these keypoints we have discarded the lower keypoints and concatenate all of them as follows: kps_body + kps_hand_left + kps_hand_right, a total of 54 keypoints or joints.
 
 The result and its id can be seen in the figure below.
 
@@ -237,7 +237,7 @@ python main_tta.py --work-dir ./work_dir/msg3d_bone_aug_drop_resize_tta_train --
 
 -- device. Indicate the gpu to use. The training requires approximately 23000MB of RAM, you can use a single GPU or several GPUs. In case you do not have enough computational resources you should reduce the batch-size by adding the following parameters by modifying the configuration file or by command line: ' --batch size 64 --forward_batch_size 32 test_batch_size 32 '
 
-**Note:** From the training phase, with which the reported performances were obtained, the training output is included in the repository in the **work_dir** directory present in this repository, except for the weights and checkpoints which have not been included for space reasons. 
+**Note:** The training output, with which the reported performances were obtained, is included in the repository in the **work_dir** directory present in this repository:
 * *work_dir/msg3d_joint_aug_drop_resize_tta_train*
 * *work_dir/msg3d_bone_aug_drop_resize_tta_train*
 
@@ -248,7 +248,7 @@ In addition, the pre-entered models will be placed in the folder **pretrained-mo
 
 ## Evaluating  (Optional)
 
-To evaluate the performance of combining the outputs of the models on joints and on bones. We will use the weights corresponding to the epoch with the best accuracy from the previous experiments present in the folder called **/pretrained-models**. And subsequently, we will combine their outputs by obtaining the accuracy in comparison with the validation labels.
+To evaluate the performance of combining the outputs of the models on joints and on bones. We used the weights corresponding to the epoch with the best accuracy from the previous experiments present in the folder called **/pretrained-models**. And subsequently, we combined their outputs and obtaining the accuracy in comparison with the validation labels.
 
 ```
 python main_tta.py --work-dir ./eval/msg3d_joint_aug_drop_resize_tta --config ./config/autsl-skeleton/val_joint_tta.yaml --weights pretrained-models\msg3d_joint_aug_drop_resize_tta_train.pt --device 0
@@ -272,8 +272,10 @@ As can be seen in the previous commands, it uses the pre-trained model and work-
 
 ## Generate predictions.csv
 
-To generate the prediction file that would later be uploaded to the platform, we evaluated using the previous weights in a similar way to how we have evaluated, but in this case using the data from the test set. 
+To generate the prediction file that would later be uploaded to the platform, we evaluated using the pretrained weights on the data from the test set. 
+
 This test set lacks the corresponding annotations, so the performance of the following executions does not provide any value until the corresponding annotations are available, which are currently not yet released and the results cannot be obtained until the file predictions.csv are uploaded to the platform.
+
 This time, we use the parameter '--csv' to generate the corresponding file 'predictions.csv'.
 
 ```
