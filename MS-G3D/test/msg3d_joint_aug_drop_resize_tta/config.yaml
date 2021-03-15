@@ -38,9 +38,8 @@ show_topk:
 - 5
 start_epoch: 0
 step:
-- 20
-- 40
-- 60
+- 45
+- 55
 test_batch_size: 32
 test_feeder_args:
   data_path: ../data_autsl/autsl/test_data_joint.npy
@@ -57,17 +56,9 @@ tta:
 - - true
   - 1.1
 - - false
-  - 1.05
-- - true
-  - 1.05
-- - false
   - 0.9
 - - true
   - 0.9
-- - false
-  - 0.95
-- - true
-  - 0.95
 weight_decay: 0.0005
 weights: /home/temporal2/mvazquez/skeleton_action_recognition/MS-G3D/pretrained-models/autsl_eval/J1_T3.pt
 work_dir: ./test/autsl-evaluation/J1_T3

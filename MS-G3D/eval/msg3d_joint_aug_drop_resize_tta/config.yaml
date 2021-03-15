@@ -38,9 +38,8 @@ show_topk:
 - 5
 start_epoch: 0
 step:
-- 20
-- 40
-- 60
+- 45
+- 55
 test_batch_size: 32
 test_feeder_args:
   data_path: ../data_autsl/autsl/val_data_joint.npy
