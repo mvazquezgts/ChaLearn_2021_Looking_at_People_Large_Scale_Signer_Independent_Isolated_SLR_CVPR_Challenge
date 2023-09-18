@@ -115,7 +115,7 @@ python autsl_generateOpenPoseKps.py --set test --split 1 --gpu 0
 In this section we prepare the labels files and features files '.npy'.
 
 #### Download
-**Link:** [https://drive.google.com/file/d/1spuwftpg5WloUgv7L8ia4Xcxt8Sy5ZjZ/view?usp=sharing](https://drive.google.com/file/d/1YKzATQLMEgzev0KWQTHGzfMPw4ZmD726/view?usp=sharing)
+**Link:** [https://drive.google.com/file/d/1jdYFax92uHoimmdazTpyYdSLX7ahO3_0/view?usp=sharing](https://drive.google.com/file/d/1jdYFax92uHoimmdazTpyYdSLX7ahO3_0/view?usp=sharing)
 
 Extract and keep the directory structure.
 
